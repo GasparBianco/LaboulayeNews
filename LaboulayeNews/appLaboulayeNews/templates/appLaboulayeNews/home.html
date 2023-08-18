@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'appLaboulayeNews/css/base.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaboulayeNews</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section name="navbar">
+        <span class="span_navbar">
+            <h1 class="h1_navbar">LaboulayeNews</h1>
+        </span>
+        <div class="div_navbar">
+            <ul class="ul_navbar">
+                <li class="li_navbar"><a href="#" class="a_navbar">Inicio</a></li>
+                <li class="li_navbar"><a href="#" class="a_navbar">Noticias</a></li>
+                <li class="li_navbar"><a href="#" class="a_navbar">Contactanos</a></li>
+            </ul>
+        </div>
+    </section>
+    <section name="basic information">
+        <div class="div_container_info">
+            <div>
+                <p>Temperatura de: {{ weather.data.values.temperature }} - 
+                Probabilidad de lluvia: {{ weather.data.values.precipitationProbability }}% - 
+                Humedad de: {{ weather.data.values.humidity }}%</p>
+            </div>
+            <div>
+                <p>Dolar oficial: {{ dollar_official.venta }} - Dolar Blue: {{ dollar_blue.venta }}</p>
+            </div>
+        </div>
+        <p>{{ context }}</p>
+    </section>
+    <section name="footer">
+        <div class="div_footer">
+            <span>&copy; 2023 LaboulayeNews. Todos los derechos reservados.</span>
+        </div>
+    </section>
+</body>
+</html>
