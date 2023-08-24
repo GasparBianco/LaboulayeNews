@@ -1,0 +1,11 @@
+{% extends 'appLaboulayeNews/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="grid-item contenido_news">    
+        <h2>{{news.category}}: {{ news.title }}</h2>   
+        <h5>{{ news.date }}</h5>    
+        <p>{{ news.body | safe }}</p>    
+    </div>
+
+{% endblock %}
