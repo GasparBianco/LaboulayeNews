@@ -3,18 +3,16 @@
 
 {% block content %}
 <div class="grid-item">
-    <div class="contenido_home">
-        <div class="container-categories">
+    <form>
+        <label for="Categories">Categorias:</label>
+        <select id="options" name="opciones">
             {% for category in categories %}
-                <a href="/category/{{ category }}/1/">{{ category }}</a>
+                <option value="{{ category }}">{{ category }}</option>
             {% endfor %}
-        </div>
+        </select>
+    </form>
+    <div class="contenido_home">
         {% for news in recent_news %}
-            {% if forloop.counter0|divisibleby:"2" %}
-                <div class="container_publicidad">
-                    <img class="img_publicidad_home" src="{% static 'appLaboulayeNews/img/publicidad_horizontal.jpeg' %}" alt="">
-                </div>
-            {% endif %}
             <div class="box">
                 <a class="a_news" href="/news/{{ news.id }}/">
                     <img class="img_noticias" src="{% static 'appLaboulayeNews/img/noticias.jpg' %}" alt="">
@@ -33,4 +31,15 @@
     </div>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var selectElement = document.getElementById("options");
+    selectElement.addEventListener("change", function () {
+        var selectedOption = selectElement.value;
+        if (selectedOption) {
+            window.location.href = "/category/" + selectedOption + "/1/";
+        }
+    });
+});
+</script>
 {% endblock %}

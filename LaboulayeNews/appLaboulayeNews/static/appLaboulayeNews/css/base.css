@@ -196,9 +196,9 @@ body {
     height: auto;
 }
 
-a {
-    text-decoration: none; /* Quita el subrayado del enlace */
-    color: inherit; /* Hereda el color del texto del contenedor padre */
+.a_news{
+    text-decoration: none;
+    color: inherit;
 }
 
 .img_noticias{
@@ -237,6 +237,7 @@ a {
     transition: color 0.3s;
 }
 .container-categories a{
+    display: block;
     background-color: #bebebe;
     padding: 3px;
     border-radius: 5px;

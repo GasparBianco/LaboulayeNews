@@ -2,19 +2,20 @@
 {% load static %}
 
 {% block content %}
+<div class="grid-item">
+    <form>
+        <label for="Categories">Categorias:</label>
+        <select id="options" name="opciones">
+            {% for category in categories %}
+                <option value="{{ category }}">{{ category }}</option>
+            {% endfor %}
+        </select>
+    </form>
 
-<div class="grid-item contenido_home">
-    <div class="container-categories">
-        {% for category in categories %}
-            <a href="/category/{{ category }}/1/">{{ category }}</a>
-        {% endfor %}
-    </div>
+
+<div class="contenido_home">
+
     {% for news in recent_news %}
-        {% if forloop.counter0|divisibleby:"2" %}
-        <div class="container_publicidad">
-            <img class="img_publicidad_home" src="{% static 'appLaboulayeNews/img/publicidad_horizontal.jpeg' %}" alt="">
-        </div>
-        {% endif %}
         <div class="box">
             <a class="a_news" href="/news/{{ news.id }}">
                 <img class="img_noticias" src="{% static 'appLaboulayeNews/img/noticias.jpg' %}" alt="">
@@ -31,5 +32,17 @@
         <a href="/category/{{ recent_news.1.category }}/{{ page.next }}/">Siguiente</a> - <a href="/category/{{ recent_news.1.category }}/{{ page.last }}/">Final</a>
     </div>
 </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var selectElement = document.getElementById("options");
+    selectElement.addEventListener("change", function () {
+        var selectedOption = selectElement.value;
+        if (selectedOption) {
+            window.location.href = "/category/" + selectedOption + "/1/";
+        }
+    });
+});
+</script>
 
 {% endblock %}
