@@ -9,6 +9,7 @@ A continuación, algunas capturas de pantalla del proyecto:
 ### Página de Inicio
 
 ![Página de Inicio](screenshots/home.png)
+![Footer](screenshots/home_footer.png)
 
 ### Detalle de Noticia
 
