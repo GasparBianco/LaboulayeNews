@@ -22,5 +22,3 @@ A continuación, algunas capturas de pantalla del proyecto:
 - **Formato de Texto:** Utiliza Markdown para dar formato a tus noticias y hacerlas más atractivas.
 - **Dinámico:** Todo el contenido se carga desde la base de datos, lo que facilita la actualización y expansión del sitio.
 - **Panel de Administración de Django:** Utiliza el potente panel de administración de Django para gestionar tu portal.
-
-## Instalación
