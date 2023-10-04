@@ -18,8 +18,7 @@
             </a>
             <ul class="nav-list">
                 <li class="nav-item"><a href="/" class="nav-link">Inicio</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Noticias</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Contacto</a></li>
+                <li class="nav-item"><a href="/contact" class="nav-link">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -45,20 +44,9 @@
                 </p>
             </div>
         </div>
-    </section>
-    <div class="grid-container">
-        <div class="grid-item col-1">
-            <img class="publicidad_vertical" src="{% static 'appLaboulayeNews/img/imagen_vertical.jpg' %}" alt="">
-        </div>
-        
+    </section>        
             {% block content %}
             {% endblock %}
-        
-        <div class="grid-item col-3">
-            <img class="publicidad_vertical" src="{% static 'appLaboulayeNews/img/imagen_vertical2.jpg' %}" alt="">
-        </div>
-    </div>
-
     <footer class="footer">
         <div class="footer-content">
             <p class="footer-text">&copy; 2023 LaboulayeNews. Todos los derechos reservados.</p>

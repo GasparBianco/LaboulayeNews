@@ -2,35 +2,38 @@
 {% load static %}
 
 {% block content %}
-<div class="grid-item">
-    <form>
-        <label for="Categories">Categorias:</label>
-        <select id="options" name="opciones">
-            {% for category in categories %}
-                <option value="{{ category }}">{{ category }}</option>
-            {% endfor %}
-        </select>
-    </form>
+
+<form class="filter-form">
+    <label for="options">Categorías:</label>
+    <select id="options" name="opciones" class="filter-select">
+        {% for category in categories %}
+            <option value="{{ category }}">{{ category }}</option>
+        {% endfor %}
+    </select>
+</form>
+    
     <div class="contenido_home">
         {% for news in recent_news %}
-            <div class="box">
-                <a class="a_news" href="/news/{{ news.id }}/">
-                    <img class="img_noticias" src="{% static 'appLaboulayeNews/img/noticias.jpg' %}" alt="">
-                    <h6 class="texto_box">{{ news.date }}</h6>
-                    <h3 class="texto_box">{{ news.category }}: {{ news.title }}</h3>
-                </a>
+        <a href="/news/{{ news.id }}">
+        <div class="noticia-card">
+            <img src="{% static 'appLaboulayeNews/img/noticias.jpg' %}" alt="Imagen de la noticia">
+            <div class="contenido">
+                <span class="categoria">{{ news.category }}</span>
+                <span class="fecha">{{ news.date }}</span>
+                <h2 class="titulo">{{ news.title }}</h2>
+                <p class="sinopsis">{{ news.sinopsis }}</p>
+                <span class="autor">Por {{ news.author }}</span>
             </div>
+        </div>
+        </a>
         {% endfor %}
     </div>
-    <div class="container_publicidad">
-        <img class="img_publicidad_home" src="{% static 'appLaboulayeNews/img/publicidad_horizontal.jpeg' %}" alt="">
+    <div class="pagination">
+        <a href="/1/">Inicio</a>
+        <a href="/{{ page.back }}/">Anterior</a>
+        <a href="/{{ page.next }}/">Siguiente</a>
+        <a href="/{{ page.last }}/">Final</a>
     </div>
-    <div class="container_page_navigator">
-        <a href="/1/">Inicio</a>   <a href="/{{ page.back }}/">Anterior</a>  
-        <a href="/{{ page.next }}/">Siguiente</a>  <a href="/{{ page.last }}/">Final</a>
-    </div>
-</div>
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
     var selectElement = document.getElementById("options");

@@ -16,6 +16,7 @@ class News(models.Model):
     body = models.TextField(blank=False, null=False)
     #image = models.ImageField(upload_to='noticias/', null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
+    sinopsis = models.TextField(blank=False, null=False)
 
     def __str__(self):
         return self.title

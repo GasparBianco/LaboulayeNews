@@ -93,3 +93,6 @@ def category(request,cat, current_page = 1):
         'dollar_blue': data_dollar_blue
     }
     return render(request, 'appLaboulayeNews/categories.html', context)
+
+def contact(request):
+    return render(request,'appLaboulayeNews/contact.html',{})
