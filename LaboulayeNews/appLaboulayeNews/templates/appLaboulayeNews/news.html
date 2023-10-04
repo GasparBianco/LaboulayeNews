@@ -6,7 +6,7 @@
     <h2 class="news-title">{{ news.category }}: {{ news.title }}</h2>
     <h5 class="news-date">{{ news.date }}</h5>
     <h5 class="news-sinopsis">{{ news.sinopsis }}</h5>
-    <img src="{% static 'appLaboulayeNews/img/noticias.jpg' %}" alt="Imagen de la noticia" class="centered-image">
+    <img src="{{ news.image.url }}" alt="Imagen de la noticia" class="centered-image">
     <p>{{ news.body | safe }}</p>
 </div>
 
