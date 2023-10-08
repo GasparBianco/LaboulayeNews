@@ -6,8 +6,9 @@
 <form class="filter-form">
     <label for="options">Categorías:</label>
     <select id="options" name="opciones" class="filter-select">
+        <option value="Todas">Todas</option>
         {% for category in categories %}
-            <option value="{{ category }}">{{ category }}</option>
+            <option value="{{ category }}" {% if selected_category == category %}selected{% endif %}>{{ category }}</option>
         {% endfor %}
     </select>
 </form>

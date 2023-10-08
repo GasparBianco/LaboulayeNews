@@ -24,24 +24,22 @@ data_dollar_blue = json.loads(response_dollar_blue.text)
 def home(request, current_page = 1):
 
     news_for_page = 8
-
+    result = [current_page]
     start = (current_page - 1) * news_for_page
-
-    page = {
-        'back': current_page - 1,
-        'next': current_page + 1,
-        'last': math.ceil(News.objects.count()/news_for_page)
-    }        
+    last_page = math.ceil(News.objects.count()/news_for_page)
+    for i in range(1, 3):
+        if current_page + i <= last_page:
+            result.append(current_page + i)
+        if current_page - i >= 1:
+            result.insert(0, current_page - i)      
     recent_news = News.objects.order_by('-id')[start:start + news_for_page]
-
-    if page['back'] <1:
-        page['back'] = 1
 
     categories = Category.objects.all()
 
     context = {
         'categories': categories,
-        'page': page,
+        'current': current_page,
+        'pages': result,
         'recent_news': recent_news,
         'weather': data_weather,
         'dollar_official': data_dollar_official,
@@ -67,6 +65,8 @@ def news(request, id):
     return render(request, 'appLaboulayeNews/news.html', context)
 
 def category(request,cat, current_page = 1):
+    if cat == 'Todas':
+        return home(request)
     news_for_page = 8
     cat = get_object_or_404(Category, name=cat)
     start = (current_page - 1) * news_for_page
@@ -85,6 +85,7 @@ def category(request,cat, current_page = 1):
     categories = Category.objects.all()
 
     context = {
+        'selected_category': cat,
         'categories': categories,
         'page': page,
         'recent_news': recent_news,

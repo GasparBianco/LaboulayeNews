@@ -27,10 +27,11 @@ body {
     padding: 0 1rem;
 }
 
-.logo {
+.logo-img {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     color: #fff;
+    width: 5rem;
 }
 
 .nav-list {
@@ -115,7 +116,8 @@ body {
         margin: 0.5rem 0;
     }
 
-    .logo {
+    .logo-img {
+        width: 30px;
         font-size: 1.2rem;
     }}
 

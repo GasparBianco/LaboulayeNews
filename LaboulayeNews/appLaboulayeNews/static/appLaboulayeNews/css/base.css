@@ -27,10 +27,11 @@ body {
     padding: 0 1rem;
 }
 
-.logo {
+.logo-img {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     color: #fff;
+    width: 5rem;
 }
 
 .nav-list {
@@ -73,13 +74,13 @@ body {
     display: flex;
     width: min-content;
     background-color: #f7f7f7;
-    padding: 1.5rem;
+    padding: 0.9rem;
     white-space: nowrap;
 }
 
 .info-text {
-    font-size: 1rem;
-    animation: scrollText1 20s linear infinite;
+    font-size: 0.9rem;
+    animation: scrollText1 30s linear infinite;
 }
 
 @keyframes scrollText1 {
@@ -103,6 +104,9 @@ body {
 .footer-text {
     text-align: center;
 }
+.footer a{
+    color: #f39c12;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -115,7 +119,8 @@ body {
         margin: 0.5rem 0;
     }
 
-    .logo {
+    .logo-img {
+        width: 30px;
         font-size: 1.2rem;
     }}
 
@@ -126,7 +131,7 @@ body {
 }
 
 /* Estilos para los recuadros en la columna 2 */
-.noticia-card {
+.noticia-card a{
     display: flex;
     background-color: #fff;
     border-radius: 5px;
@@ -141,7 +146,7 @@ body {
     height: auto;
 }
 @media (max-width: 768px) {
-    .noticia-card{
+    .noticia-card a{
         display: block;
         width:90%;
     }
@@ -157,10 +162,11 @@ body {
 .contenido {
     padding: 15px;
     flex-grow: 1;
+    text-align: left;
 }
 
 .categoria {
-    color: #333;
+    color: #FF5733;
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
@@ -172,10 +178,15 @@ body {
     font-size: 14px;
     margin-bottom: 5px;
 }
+.container-autor-fecha{
+    display: flex;
+    justify-content: space-between;
+}
 
 .titulo {
-    font-size: 18px;
+    font-size: 24px;
     margin: 5px 0;
+    line-height: 1;
 }
 
 .sinopsis {
@@ -201,7 +212,7 @@ body {
     border-radius: 5px;
     margin-bottom: 20px;
     width: 60%;
-    margin: auto
+    margin: 1rem auto
 }
 
 /* Estilos para la etiqueta "Categorías" */
@@ -222,24 +233,28 @@ body {
 }
 /* Estilos para el elemento de navegación de páginas */
 .pagination {
-    margin-top: 20px;
+    margin: 1rem;
     text-align: center;
 }
 
 /* Estilos para los enlaces de navegación */
 .pagination a {
     display: inline-block;
-    padding: 5px 10px;
     margin: 0 5px;
-    background-color: #0078d4;
-    color: #fff;
-    text-decoration: none;
+    color: #505050;
+}
+.pagination p{
+    display: inline-block;
+    margin: 0 5px;
+    color: #2e2e2e;
+    padding: 5px;
     border-radius: 3px;
+    background-color:#f39c12 ;
 }
 
 /* Estilos para los enlaces de navegación al pasar el mouse sobre ellos */
 .pagination a:hover {
-    background-color: #005aa3;
+    color: #f39c12;
 }
 
 /* Estilos para el cuerpo de la noticia */

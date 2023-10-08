@@ -6,33 +6,40 @@
 <form class="filter-form">
     <label for="options">Categorías:</label>
     <select id="options" name="opciones" class="filter-select">
+        <option value="Todas">Todas</option>
         {% for category in categories %}
             <option value="{{ category }}">{{ category }}</option>
         {% endfor %}
     </select>
 </form>
     
-    <div class="contenido_home">
-        {% for news in recent_news %}
+<div class="contenido_home">
+    {% for news in recent_news %}
+    <div class="noticia-card">
         <a href="/news/{{ news.id }}">
-        <div class="noticia-card">
-            <img src="{{ news.image.url }}" alt="Imagen de la noticia">
-            <div class="contenido">
-                <span class="categoria">{{ news.category }}</span>
+        <img src="{{ news.image.url }}" alt="Imagen de la noticia">
+        <div class="contenido">
+            <span class="categoria">{{ news.category }}</span>
+            <h2 class="titulo">{{ news.title }}</h2>
+            <p class="sinopsis">{{ news.sinopsis }}</p>
+            <div class="container-autor-fecha">
                 <span class="fecha">{{ news.date }}</span>
-                <h2 class="titulo">{{ news.title }}</h2>
-                <p class="sinopsis">{{ news.sinopsis }}</p>
-                <span class="autor">Por {{ news.author }}</span>
+                <span class="fecha">{{ news.location }}</span>
+                <span class="autor">Por {{ news.author }} </span>
             </div>
         </div>
-        </a>
-        {% endfor %}
+    </a>
     </div>
+    {% endfor %}
+</div>
     <div class="pagination">
-        <a href="/1/">Inicio</a>
-        <a href="/{{ page.back }}/">Anterior</a>
-        <a href="/{{ page.next }}/">Siguiente</a>
-        <a href="/{{ page.last }}/">Final</a>
+        {% for page in pages %}
+            {% if page == current %}
+                <p class="current_page">{{ page }}</p>
+            {% else %}
+                <a href="/{{ page }}/">{{ page }}</a>
+            {% endif %}
+        {% endfor %}
     </div>
 <script>
     document.addEventListener("DOMContentLoaded", function () {

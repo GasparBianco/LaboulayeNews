@@ -11,6 +11,7 @@ class News(models.Model):
 
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255, blank=False, null=False)
+    location = models.CharField(max_length=255, blank=False, null=False)
     author = models.CharField(max_length=255, default='Anonimo')
     date = models.DateTimeField(auto_now_add=True)
     body = models.TextField(blank=False, null=False)
