@@ -3,7 +3,8 @@
 
 {% block content %}
 <div class="noticia-body">
-    <h2 class="news-title">{{ news.category }}: {{ news.title }}</h2>
+    <h2 class="news-category">{{ news.category }}</h2>
+    <h2 class="news-title">{{ news.title }}</h2>
     <h5 class="news-date">{{ news.date }}</h5>
     <h5 class="news-sinopsis">{{ news.sinopsis }}</h5>
     <img src="{{ news.image.url }}" alt="Imagen de la noticia" class="centered-image">

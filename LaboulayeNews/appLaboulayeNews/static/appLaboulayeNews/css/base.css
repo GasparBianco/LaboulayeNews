@@ -282,6 +282,12 @@ body {
     color: #0078d4;
     margin-bottom: 10px;
 }
+.news-category {
+    font-size: 24px;
+    color:#FF5733;
+    margin-bottom: 10px;
+}
+
 
 /* Estilos para la fecha y la sinopsis */
 .noticia-body h5 {
