@@ -5,6 +5,12 @@
 
 <section id="contact" class="contact sec-pad dynamicBg">
     <div class="contact-container">
+      {% if message %}
+      <div class="alert success">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        ¡Correo recibido con éxito!
+    </div>
+    {% endif %}
       <h2 class="heading heading-sec heading-sec__mb-med">
         <span class="heading-sec__main heading-sec__main--lt">Contacto</span>
         <span class="heading-sec__sub heading-sec__sub--lt">
@@ -13,7 +19,8 @@
         </span>
       </h2>
       <div class="contact__form-container">
-        <form action="/contact" class="contact__form" method="POST">
+        <form action="{% url 'contact' %}" class="contact__form" method="POST">
+          {% csrf_token %}
           <div class="contact__form-field">
             <label class="contact__form-label" for="name">Nombre</label>
             <input

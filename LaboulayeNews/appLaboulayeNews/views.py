@@ -4,6 +4,8 @@ import json
 from appLaboulayeNews.models import Category, News
 import markdown
 import math
+from LaboulayeNews.settings import EMAIL_HOST_USER
+from django.core.mail import send_mail
 
 
 
@@ -96,10 +98,12 @@ def category(request,cat, current_page = 1):
     return render(request, 'appLaboulayeNews/categories.html', context)
 
 def contact(request):
+    context = {'message': False}
     if request.method == 'POST':
         context = {'message': "Hemos recibido su mensaje correctamente"}
-        subject = request.POST['subject']
-        message = request.POST['message']
-        name = request.POST['name']
-        email = request.POST['email']
+        message =   f"Nombre: {request.POST['name']}\n" \
+                    f"Mensaje: {request.POST['message']}\n" \
+                    f"Correo Electrónico: {request.POST['email']}"
+
+        send_mail('', message, EMAIL_HOST_USER, ['gasparbianco98@gmail.com'])
     return render(request,'appLaboulayeNews/contact.html',context)

@@ -159,6 +159,30 @@ body {
         width: 90%;
     }
 }
+.alert {
+    padding: 20px;
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white;
+    margin: 20px;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .success {
+    background-color: #4CAF50; /* Color de fondo verde para el éxito */
+  }
+  
+  /* Estilos para el botón de cierre (x) */
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 20px;
+    line-height: 10px;
+    cursor: pointer;
+  }
+  
 .contenido {
     padding: 15px;
     flex-grow: 1;
