@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 import requests
 import json
 from appLaboulayeNews.models import Category, News
@@ -96,4 +96,10 @@ def category(request,cat, current_page = 1):
     return render(request, 'appLaboulayeNews/categories.html', context)
 
 def contact(request):
-    return render(request,'appLaboulayeNews/contact.html',{})
+    if request.method == 'POST':
+        context = {'message': "Hemos recibido su mensaje correctamente"}
+        subject = request.POST['subject']
+        message = request.POST['message']
+        name = request.POST['name']
+        email = request.POST['email']
+    return render(request,'appLaboulayeNews/contact.html',context)
